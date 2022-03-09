@@ -72,7 +72,7 @@ def txt_document_to_pdf_converter(request):
 	pdf = FPDF() 
 	pdf.add_page() 
 	pdf.set_font('arial', size=10)
-	path = "C:/Users/empire/desktop/django/toolkit"  
+	path = "http://127.0.0.1:8000"  
 	new_object.save()
 	txt_path = path+new_object.txt_file.url
 	pdf_c_path = txt_path.replace(".txt", ".pdf")
