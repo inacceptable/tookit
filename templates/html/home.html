@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' type='text/css' href="{% static 'css/style.css' %}"/> 
+	<title>Web Tools</title>
+</head>
+<body>
+
+	<div class='tools-heading-banner-container'> 
+		<div class='tools-container'> 
+			<div class='tools-heading'> 
+				<h1>Tools</h1>
+			</div>
+			<div class='tools-container-converters'> 
+				<h1 class='tools-heading-sub-heading' id='item-converter'>Converters<span id='active-toggle-converter' style='float:right; font-size:1em;'>↦</span><span id='not-active-toggle-converter' style='float:right; display:none; font-size:1em;'>↧</span></h1>
+				<div class='item-converter-container' style="display:none;"> 
+					{% for i in converters %}
+					<p class='tool-button' id="{{i.1}}">{{i.0}}</p>
+					<script type="text/javascript">
+					$("#{{i.1}}").click(function() {
+					});
+					</script>
+					{% endfor %}
+				</div> 
+			</div>
+
+			<div class='tools-container-generators'> 
+				<h1 class='tools-heading-sub-heading' id='item-generator'>Random Generators<span id='active-toggle-generator' style='float:right; font-size:1em;'>↦</span><span id='not-active-toggle-generator' style='float:right; display:none; font-size:1em;'>↧</span></h1>
+				<div class='item-generator-container' style="display:none;"> 
+					{% for i in generators %}
+					<p class='tool-button' id="{{i.1}}">{{i.0}}</p>
+					<script type="text/javascript">
+					$("#{{i.1}}").click(function() {
+					});
+					</script>
+					{% endfor %}
+				</div> 
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		$("#item-converter").click(function() {
+		    $(".item-converter-container").slideToggle(200);
+		    $("#active-toggle-converter").toggle(200);
+		    $("#item-converter").toggleClass('tools-heading-sub-heading-active');
+		    $("#not-active-toggle-converter").toggle(200);
+		});
+		</script>
+
+		<script type="text/javascript">
+		$("#item-generator").click(function() {
+		    $(".item-generator-container").slideToggle(200);
+		    $("#active-toggle-generator").toggle(200);
+		    $("#item-generator").toggleClass('tools-heading-sub-heading-active');
+		    $("#not-active-toggle-generator").toggle(200);
+		});
+		</script>
+
+		<div class='heading-banner-container'>
+			<div class='banner'> 
+				<h1 id='banner-heading'>Web Tools</h1>
+			</div>
+			<div class='website-description'> 
+				<p>The handy toolkit is a website comprised of different tools created by Con Anastasiou.</p> 
+				<p>The tools utilise the programming language python to allow for endless creations.</p> 
+				<p>This website is updated with new tools regularly, so check again to find new tools!</p>
+				<p>If you have suggestions for tools that can be added, please use our online form below.</p>
+			</div>
+		</div>
+	</div>
+
+
+	{% for i in converters %}
+	<div class='tool-container-content' id='{{i.1}}'>
+		{% include i.2 %}
+	</div> 
+	<script type="text/javascript">
+		$("#{{i.1}}").click(function() {
+			$('.tool-button').removeClass('bold-active');
+			$(".tool-content-container").slideUp(200);
+			$("#{{i.1}}_container").slideToggle(200);
+			$('#{{i.1}}').toggleClass('bold-active');
+		});
+		</script>
+	{% endfor %}
+	
+	{% for i in generators %}
+	<div class='tool-container-content-generators' id='{{i.1}}'>
+		{% include i.2 %}
+	</div> 
+	<script type="text/javascript">
+		$("#{{i.1}}").click(function() {
+			$('.tool-button').removeClass('bold-active');
+			$(".tool-content-container").slideUp(200);
+			$("#{{i.1}}_container").slideToggle(200);
+			$('#{{i.1}}').toggleClass('bold-active');
+		});
+		</script>
+	{% endfor %}
+
+</body>
+</html>

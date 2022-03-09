@@ -1,0 +1,104 @@
+body
+{
+	padding: 5%;
+	padding-top: 2%;
+	overflow-y: scroll;
+}
+.banner
+{
+	user-select: none; 
+	background-color: #6C698D;
+	opacity: 0.6;
+	margin: 0 auto;
+
+}
+.bold-active
+{
+	font-weight: bolder;
+}
+.tool-button{
+	background-color: #D4D2D5;
+	padding: 1%;
+	width: 80%;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.tools-heading-sub-heading
+{
+	background-color: #D4D2D5;
+	cursor: pointer;
+	font-size: 1.5em;
+	text-align: left;
+	border-radius: 5px;
+}
+.form-input
+{
+	width: 100%;
+	padding: 1%;
+	border: 1px solid black;
+	border-radius: 3px;
+	font-size: 1.5em;
+}
+.form-submit-button
+{
+	padding: 3%;
+	font-size: 2em;
+	margin-top: 7%; 
+	text-align: center;
+	width: 30%;
+	display: block;
+	cursor: pointer;
+	background-color: black;
+	color: white;
+}
+.tool-content-container
+{
+	margin-left: 25%;
+	margin-top: 5%;
+	padding: 4%;
+	width: 70%; 
+	border: 3px solid black;
+}
+.tools-heading-sub-heading:hover{
+	background-color: #6E6A6F;
+}
+.cursor-pointer
+{
+	cursor: pointer;
+}
+.tools-heading-sub-heading-active
+{
+	background-color: black;
+	color: white;
+}
+#banner-heading{
+	font-size: 5em;
+	color: white;
+}
+.website-description
+{
+	margin: 0 auto;
+	font-size: 1.5em;
+}
+.tools-heading-banner-container
+{
+	display: grid;
+	grid-template-columns: 20% 70%;
+	grid-gap: 5%;
+}
+.tools-container
+{
+	text-align: center;
+	user-select: none;
+}
+.tools-container-converters
+{
+	text-align: left;
+}
+.tools-heading
+{
+	background-color: #BFAFA6;
+	width: 100%;
+	padding-bottom: 2%; padding-left: 2%; padding-right: 2%;
+	margin-bottom: 1%;
+}

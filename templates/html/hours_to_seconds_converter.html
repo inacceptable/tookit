@@ -1,0 +1,24 @@
+<div style='display:none;' class='tool-content-container' id='hours_to_seconds_converter_container'> 
+		<h1 style='background-color:#6C698D; padding:1.5%; color:white'>Hours to seconds converter</h1>
+		<h3>Enter the number of hours you would like to convert to seconds: </h3>
+		<p style='font-size: 1.5em;' id="hours_to_seconds_converter_result"></p>
+		<input id="hours_to_seconds_converter_input" class='form-input' type='text' placeholder='Enter a number of hours: '/>
+		<a id='hours_to_seconds_converter_submit' class='form-submit-button'>Submit</a>
+
+		<script type="text/javascript">
+		$("#hours_to_seconds_converter_submit").click(function() {
+			var inputted = $("#hours_to_seconds_converter_input").val(); 
+		    $.ajax({
+		        type: 'GET',
+		        url: "{% url 'hours_to_seconds_converter' %}",
+		        data: {
+		            'inputted' : inputted,
+		        },
+		        success: function(data) {
+
+		        	$('#hours_to_seconds_converter_result').text("Result : " + data.number_input);
+		        }
+		    });
+		});
+		</script>
+	</div>
