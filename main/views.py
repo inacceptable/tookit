@@ -80,12 +80,12 @@ def txt_document_to_pdf_converter(request):
 
 	pdf_path = pdf_path.replace(".txt", ".pdf")
 	text_file = open(txt_path, 'r')
-	print()
+	print(pdf_path)
+	print(txt_path)
 	for text in text_file:
 		pdf.cell(200, 10, txt = text, ln=1,align='L') 
 	pdf.output(pdf_c_path)	
 	new_object.pdf_file = pdf_path
-	print(test_path)
 	new_object.save()
 	data = {
 		'pdf_path' : pdf_path
