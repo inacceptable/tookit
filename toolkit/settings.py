@@ -102,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+CSRF_COOKIE_NAME = 'tokenname_sessionid'
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
