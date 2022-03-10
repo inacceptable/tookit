@@ -72,19 +72,23 @@ def txt_document_to_pdf_converter(request):
 	pdf = FPDF() 
 	pdf.add_page() 
 	pdf.set_font('arial', size=10)
-	path = "http://127.0.0.1:8000"  
+	path = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
 	new_object.save()
 	txt_path = path+new_object.txt_file.url
 	pdf_c_path = txt_path.replace(".txt", ".pdf")
-	pdf_path = "http://127.0.0.1:8000" + new_object.txt_file.url
+	pdf_path = "https://toolkit-website.herokuapp.com" + new_object.txt_file.url
+
 	pdf_path = pdf_path.replace(".txt", ".pdf")
 	text_file = open(txt_path, 'r')
+	print()
 	for text in text_file:
 		pdf.cell(200, 10, txt = text, ln=1,align='L') 
 	pdf.output(pdf_c_path)	
 	new_object.pdf_file = pdf_path
+	print(test_path)
 	new_object.save()
 	data = {
 		'pdf_path' : pdf_path
 	}
 	return JsonResponse(data)
+
