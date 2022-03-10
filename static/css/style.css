@@ -2,7 +2,16 @@ body
 {
 	padding: 5%;
 	padding-top: 2%;
+	position: relative;
 	overflow-y: scroll;
+}
+.opacity
+{
+	opacity: 0.2;
+}
+.opacity-show
+{
+	opacity: 1;
 }
 .banner
 {
@@ -11,6 +20,56 @@ body
 	opacity: 0.6;
 	margin: 0 auto;
 
+}
+
+.suggestion-form-container
+{
+	width: 90%;
+	text-decoration: underline;
+	text-align: left;
+	top: 300px;
+	position: absolute;
+
+	margin: 0 auto;
+}
+.suggestion-form-container a 
+{
+	padding: 1%; 
+	font-size: 1.5em;
+	display: block;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	background-color: black;
+
+}
+
+.suggestion-form-container
+{
+	background-color: #E7F0FF;
+	padding: 1%;
+	border: 1px solid black;
+	color: black;
+}
+.suggestion-form-container h1
+{
+	cursor: pointer;
+}
+.suggestion-form-container input, .suggestion-form-container textarea
+{
+	padding: 1.5%;
+	border: 0;
+	outline: none;
+	overflow-y: scroll;
+	font-size: 1.5em;
+	margin-bottom: 2%;
+	width: 70%;
+}
+.suggestion-form textarea{
+	max-width: 70%;
+	min-width: 70%;
+	min-height: 100px; 
+	max-height: 100px;
 }
 .bold-active
 {
@@ -53,7 +112,7 @@ body
 }
 .tool-content-container
 {
-	margin-left: 25%;
+	margin-left: 30%;
 	margin-top: 5%;
 	padding: 4%;
 	width: 70%; 
@@ -83,7 +142,7 @@ body
 .tools-heading-banner-container
 {
 	display: grid;
-	grid-template-columns: 20% 70%;
+	grid-template-columns: 25% 70%;
 	grid-gap: 5%;
 }
 .tools-container
