@@ -7,11 +7,14 @@ from random import *
 from django.conf import settings
 import textwrap
 import os 
+import re 
 from fpdf import FPDF
-from .models import txt_to_pdf
+from .models import txt_to_pdf, feedback
 
 
 """Function to convert binary numbers to integers"""
+def valid_email(email):
+  return bool(re.search(r"^[\w\.\+\-]+\@[\w]+\.[a-z]{2,3}$", email))
 
 def home(request): 
 	converters = (['Binary to number converter', 'binary_to_number_converter', "html/binary_to_number_converter.html"], ['Number to binary converter', 'number_to_binary_converter', "html/number_to_binary_converter.html"], ['Hours to seconds converter', 'hours_to_seconds_converter', "html/hours_to_seconds_converter.html"], ['TXT document to pdf', 'txt_document_to_pdf_converter', 'html/txt_document_to_pdf_converter.html'] )
@@ -66,6 +69,25 @@ def password_generator(reqeust):
 	}
 	return JsonResponse(data)
 
+def send_feedback(request): 
+	subject = request.GET.get('subject')
+	email = request.GET.get('email')
+	suggestion = request.GET.get('suggestion')
+	email_test = valid_email(email) 
+	if email_test == False: 
+		message = "Please enter a valid email address" 
+		data = { 
+			'message' : message, 
+		}
+		return JsonResponse(data)
+	new_object = feedback(subject=subject, email=email, suggestion=suggestion)
+	new_object.save()
+	message = "Feedback delivered" 
+	data = { 
+		'message' : message, 
+	}
+	return JsonResponse(data)
+
 def txt_document_to_pdf_converter(request): 
 	txt_file = request.FILES.get('txt_file')
 	new_object = txt_to_pdf(txt_file = request.FILES.get('txt_file'))
@@ -77,7 +99,6 @@ def txt_document_to_pdf_converter(request):
 	txt_path = path+new_object.txt_file.url
 	pdf_c_path = txt_path.replace(".txt", ".pdf")
 	pdf_path = "https://toolkit-website.herokuapp.com" + new_object.txt_file.url
-
 	pdf_path = pdf_path.replace(".txt", ".pdf")
 	text_file = open(txt_path, 'r')
 	print(pdf_path)

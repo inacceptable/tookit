@@ -26,4 +26,5 @@ urlpatterns = [
     path('hours_to_seconds_converter', views.hours_to_seconds_converter, name='hours_to_seconds_converter'),
     path('password_generator', views.password_generator, name='password_generator'), 
     path('txt_document_to_pdf_converter', views.txt_document_to_pdf_converter, name='txt_document_to_pdf_converter'),
+    path('send_feedback', views.send_feedback, name='send_feedback'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

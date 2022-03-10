@@ -111,7 +111,7 @@
 			<input type='text' id='subject' placeholder='Subject'/> 
 			<input type='text' id='email' placeholder="Email: example@example.com"/>
 			<textarea id='suggestion' placeholder='Enter your suggestion: '></textarea>
-			<a href="">Send suggestion</a>
+			<a id='submit-suggestion' href="">Send suggestion</a>
 		</div>
 	<script type="text/javascript">
 		$("#suggestion-form-dropdown").click(function() {
@@ -127,5 +127,25 @@
 			$(".tool-content-container").toggleClass('opacity');
 		});
 	</script>
+	<script type="text/javascript">
+		$("#submit-suggestion").click(function() {
+			var subject = $("#subject").val(); 
+			var email = $("#email").val(); 
+			var suggestion = $("#suggestion").val(); 
+		    $.ajax({
+		        type: 'GET',
+		        url: "{% url 'send_feedback' %}",
+		        data: {
+		            'subject' : subject, 
+		            'email' : email, 
+		            'suggestion' : suggestion,
+		        },
+		        success: function(data) {
+
+		        	alert(data.message); 
+		        }
+		    });
+		});
+		</script>
 </body>
 </html>

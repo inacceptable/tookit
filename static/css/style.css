@@ -108,6 +108,7 @@ body
 	width: 30%;
 	display: block;
 	cursor: pointer;
+	user-select: none;
 	background-color: black;
 	color: white;
 }
