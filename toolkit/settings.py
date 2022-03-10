@@ -22,7 +22,8 @@ from django.core.management.utils import get_random_secret_key
 
 # SECURITY 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
+static_secret_key = get_random_secret_key()
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', static_secret_key)
 
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'False'
 ALLOWED_HOSTS = ['*']
