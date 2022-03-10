@@ -48,7 +48,7 @@
 
 		<script type="text/javascript">
 		$("#item-converter").click(function() {
-		    $(".item-converter-container").slideToggle(200);
+		    $(".item-converter-container").fadeToggle(200);
 		    $("#active-toggle-converter").toggle(200);
 		    $("#item-converter").toggleClass('tools-heading-sub-heading-active');
 		    $("#not-active-toggle-converter").toggle(200);
@@ -57,7 +57,7 @@
 
 		<script type="text/javascript">
 		$("#item-generator").click(function() {
-		    $(".item-generator-container").slideToggle(200);
+		    $(".item-generator-container").fadeToggle(200);
 		    $("#active-toggle-generator").toggle(200);
 		    $("#item-generator").toggleClass('tools-heading-sub-heading-active');
 		    $("#not-active-toggle-generator").toggle(200);
@@ -86,7 +86,7 @@
 		$("#{{i.1}}").click(function() {
 			$('.tool-button').removeClass('bold-active');
 			$(".tool-content-container").slideUp(200);
-			$("#{{i.1}}_container").slideToggle(200);
+			$("#{{i.1}}_container").fadeToggle(200);
 			$('#{{i.1}}').toggleClass('bold-active');
 		});
 		</script>
@@ -100,7 +100,7 @@
 		$("#{{i.1}}").click(function() {
 			$('.tool-button').removeClass('bold-active');
 			$(".tool-content-container").slideUp(200);
-			$("#{{i.1}}_container").slideToggle(200);
+			$("#{{i.1}}_container").fadeToggle(200);
 			$('#{{i.1}}').toggleClass('bold-active');
 		});
 		</script>
