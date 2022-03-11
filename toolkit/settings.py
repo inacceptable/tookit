@@ -24,7 +24,8 @@ from django.core.management.utils import get_random_secret_key
 # SECURITY WARNING: keep the secret key used in production secret!
 static_secret_key = get_random_secret_key()
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', static_secret_key)
-
+ON_HEROKU = os.environ.get('ON_HEROKU')
+HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'False'
 ALLOWED_HOSTS = ['*']
 # Application definition
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic', 
     'django.contrib.staticfiles',
     'main', 
 ]
@@ -46,6 +48,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -76,14 +80,13 @@ WSGI_APPLICATION = 'toolkit.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+db_from_env = dj_database_url.config(conn_max_age=600)
+if ON_HEROKU:
+    DATABASE_URL = 'postgresql://<postgresql>'
+else:
+    DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
