@@ -35,8 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
-    'colorfield',
+    'main',
     'django_cleanup.apps.CleanupConfig',
     'django_quill', 
 
