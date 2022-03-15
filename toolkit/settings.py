@@ -25,7 +25,7 @@ from django.core.management.utils import get_random_secret_key
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
 
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'False'
-ALLOWED_HOSTS = ['127.0.0.1', '']
+ALLOWED_HOSTS = ['127.0.0.1', '*']
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,8 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'django_cleanup.apps.CleanupConfig',
-    'django_quill', 
-
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
