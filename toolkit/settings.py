@@ -22,8 +22,7 @@ from django.core.management.utils import get_random_secret_key
 
 # SECURITY 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
-
+SECRET_KEY = os.getenv('SECRET_KEY', 'change-in-production')
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'False'
 ALLOWED_HOSTS = ['127.0.0.1', '*']
 # Application definition
