@@ -166,7 +166,25 @@ body
 	margin-bottom: 1%;
 }
 
-@media only screen and (max-width: 1000px) {
+@media (min-width:600px) and (max-width:1000px) {
+	body
+	{
+		padding: 1%;
+	}
+  .tools-heading-banner-container
+	{
+		grid-gap: 5px;
+		width: 100%;
+		display: inline-block;
+	}
+	.tools-container
+	{
+		margin: 0 auto;
+		text-align: center;
+		margin-bottom: 15%;
+	}
+}
+@media only screen and (max-width: 600px) {
 	body
 	{
 		padding: 1%;
