@@ -194,8 +194,15 @@ body
 		cursor:pointer;
 	}
 
-
 @media (min-width:600px) and (max-width:1000px) {
+	.submit-suggestion-heading
+	{
+		position: absolute;
+		bottom: -50px;
+		width: 98%;
+		display: block;
+
+	}
 	body
 	{
 		padding: 1%;
@@ -223,6 +230,14 @@ body
 	.
 }
 @media only screen and (max-width: 600px) {
+	.submit-suggestion-heading
+	{
+		position: absolute;
+		bottom: -50px;
+		width: 98%;
+		display: block;
+
+	}
 	.tool-content-container
 	{
 		width: 98%;
