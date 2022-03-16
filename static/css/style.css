@@ -47,17 +47,18 @@ body
 
 .suggestion-form-container
 {
-	background-color: #F4ECD6;
-	padding: 1%;
-	border: 1px solid black;
-	color: black;
 	position: absolute;
-	display: inline-block;
-	top: 0;
+	top: 120px;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	margin: auto;
+	background-color: #F4ECD6;
+	padding: 4%;
+	width: 80%; 
+	height: 600px;
+	border: 3px solid black;	
+	margin-top: 5%;
 	
 }
 .suggestion-form-container h1
@@ -110,11 +111,11 @@ body
 }
 .form-submit-button
 {
-	padding: 3%;
+	padding: 2%;
 	font-size: 2em;
 	margin-top: 7%; 
 	text-align: center;
-	width: 100%;
+	width: 90%;
 	display: block;
 	cursor: pointer;
 	user-select: none;
@@ -133,9 +134,9 @@ body
 	background-color: #F4ECD6;
 	padding: 4%;
 	width: 80%; 
-	height: 500px;
-	border: 3px solid black;
-	
+	height: 600px;
+	border: 3px solid black;	
+	margin-top: 5%;
 	
 }
 
@@ -207,6 +208,12 @@ body
 	}
 
 @media (min-width:600px) and (max-width:1000px) {
+	.suggestion-form-container
+{
+	height: 450px;	
+	
+	margin-top: 3%;
+}
 	.submit-suggestion-heading
 	{
 		position: absolute;
@@ -247,6 +254,12 @@ body
 	.
 }
 @media only screen and (max-width: 600px) {
+	.suggestion-form-container
+{
+	height: 400px;	
+	margin-top: 3%;
+	
+}
 	.tools-heading
 	{
 		width: 30%;
@@ -263,6 +276,7 @@ body
 	.tool-content-container
 	{
 		width: 98%;
+		margin-top: 3%;
 	}
 	.suggestion-form-container
 	{
