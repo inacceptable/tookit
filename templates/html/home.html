@@ -100,6 +100,7 @@
 		$("#{{i.1}}").click(function() {
 			$('.tool-button').removeClass('bold-active');
 			$(".tool-content-container").fadeOut(700);
+			$(".tools-heading-banner-container").toggleClass('opacity');
 			$("#{{i.1}}_container").fadeToggle(700);
 			$('#{{i.1}}').toggleClass('bold-active');
 		});
@@ -125,6 +126,15 @@
 			$(".suggestion-form-container").fadeToggle(700);
 			$(".tools-heading-banner-container").toggleClass('opacity');
 			$(".tool-content-container").toggleClass('opacity');
+		});
+	</script>
+	<script type="text/javascript">
+		$(".close-tool-form-button").click(function() {
+			$('.tool-button').removeClass('bold-active');
+			$(".tool-content-container").fadeOut(700);
+			$(".tools-heading-banner-container").removeClass('opacity');
+			$("#{{i.1}}_container").fadeToggle(700);
+			$('#{{i.1}}').removeClass('bold-active');
 		});
 	</script>
 	<script type="text/javascript">

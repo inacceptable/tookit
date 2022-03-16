@@ -46,10 +46,18 @@ body
 
 .suggestion-form-container
 {
-	background-color: #E7F0FF;
+	background-color: #F4ECD6;
 	padding: 1%;
 	border: 1px solid black;
 	color: black;
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	
 }
 .suggestion-form-container h1
 {
@@ -114,13 +122,19 @@ body
 }
 .tool-content-container
 {
-	margin-left: 27%;
 	
-	padding: 4%;
-	width: 63%; 
-	border: 3px solid black;
 	position: absolute;
-	top: 400px;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: #F4ECD6;
+	padding: 4%;
+	width: 80%; 
+	border: 3px solid black;
+	
+	
 }
 .tools-heading-sub-heading:hover{
 	background-color: #6E6A6F;
@@ -145,9 +159,13 @@ body
 }
 .tools-heading-banner-container
 {
-	display: grid;
-	grid-template-columns: 25% 70%;
-	grid-gap: 5%;
+	    width: 100%;
+    display: flex;
+    flex-direction: row;
+    grid-gap: 5%;
+    align-items: stretch;
+    align-content: center;
+    justify-content: space-evenly;
 }
 .tools-container
 {
@@ -165,6 +183,17 @@ body
 	padding-bottom: 2%; padding-left: 2%; padding-right: 2%;
 	margin-bottom: 1%;
 }
+#close-form-button, .close-tool-form-button
+	{
+		position:absolute; 
+		top:0; 
+		background-color: white; 
+		padding: 1%; 
+		right:0; 
+		font-size:2em; 
+		cursor:pointer;
+	}
+
 
 @media (min-width:600px) and (max-width:1000px) {
 	body
@@ -186,28 +215,18 @@ body
 		width: 95%; 
 		margin: 0 auto;
 	}
+	
 	.tool-content-container
 	{
-	
-	padding: 4%;
-	width: 100%;
-	margin-left: 0;
-	border: 3px solid black;
-	position: relative;
+		width: 95%;
 	}
-	.close-form-button
-	{
-		position:absolute; 
-		top:0; 
-		border: 3px solid black; 
-		background-color: white; 
-		padding: 1%; 
-		right:0; 
-		font-size:2em; 
-		cursor:pointer;
-	}
+	.
 }
 @media only screen and (max-width: 600px) {
+	.tool-content-container
+	{
+		width: 98%;
+	}
 	.suggestion-form-container
 	{
 		width: 95%; 
