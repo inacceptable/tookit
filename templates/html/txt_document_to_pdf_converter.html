@@ -20,7 +20,8 @@
                 mimeType: "multipart/form-data",
 		        data: data,
 		        success: function(data) {
-		          $("#txt_document_to_pdf_converter_download").show(100);
+		        	 $("#txt_document_to_pdf_converter_submit").fadeOut(300);
+		          $("#txt_document_to_pdf_converter_download").fadeIn(500);
 		          var x = JSON.parse(data);
 		          console.log(x);
 		          console.log(x.pdf_path);
