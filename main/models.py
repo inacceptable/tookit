@@ -5,6 +5,10 @@ class txt_to_pdf(models.Model):
 	txt_file = models.FileField(upload_to='PDF_to_txt', blank=True)
 	pdf_file = models.FileField(upload_to='PDF_to_txt', blank=True)
 
+class docx_to_pdf(models.Model):
+	docx_file = models.FileField(upload_to='DOCX_to_PDF', blank=True)
+	pdf_file = models.FileField(upload_to='DOCX_to_PDF', blank=True)
+
 class feedback(models.Model): 
 	subject = models.CharField(max_length = 100) 
 	email = models.CharField(max_length = 100) 

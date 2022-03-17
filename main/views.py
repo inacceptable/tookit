@@ -7,9 +7,10 @@ from random import *
 from django.conf import settings
 import textwrap
 import os 
+from docx2pdf import convert
 import re 
 from fpdf import FPDF
-from .models import txt_to_pdf, feedback
+from .models import txt_to_pdf, feedback, docx_to_pdf
 
 
 """Function to convert binary numbers to integers"""
@@ -17,7 +18,7 @@ def valid_email(email):
   return bool(re.search(r"^[\w\.\+\-]+\@[\w]+\.[a-z]{2,3}$", email))
 
 def home(request): 
-	converters = (['Binary to number converter', 'binary_to_number_converter', "html/binary_to_number_converter.html"], ['Number to binary converter', 'number_to_binary_converter', "html/number_to_binary_converter.html"], ['Hours to seconds converter', 'hours_to_seconds_converter', "html/hours_to_seconds_converter.html"], ['TXT document to pdf', 'txt_document_to_pdf_converter', 'html/txt_document_to_pdf_converter.html'] )
+	converters = (['Binary to number converter', 'binary_to_number_converter', "html/binary_to_number_converter.html"], ['Number to binary converter', 'number_to_binary_converter', "html/number_to_binary_converter.html"], ['Hours to seconds converter', 'hours_to_seconds_converter', "html/hours_to_seconds_converter.html"], ['TXT document to pdf', 'txt_document_to_pdf_converter', 'html/txt_document_to_pdf_converter.html'], ['DOCX to PDF', 'docx_to_pdf_converter', 'html/docx_to_pdf_converter.html'] )
 
 	generators = (['Password Generator', 'password_generator', 'html/password_generator.html'],)
 	context = { 
@@ -106,6 +107,27 @@ def txt_document_to_pdf_converter(request):
 	for text in text_file:
 		pdf.cell(200, 10, txt = text, ln=1,align='L') 
 	pdf.output(pdf_c_path)	
+	new_object.pdf_file = pdf_path
+	new_object.save()
+	data = {
+		'pdf_path' : pdf_path
+	}
+	return JsonResponse(data)
+
+def docx_to_pdf_converter(request): 
+	docx_file = request.FILES.get('docx_file')
+	new_object = docx_to_pdf(docx_file = request.FILES.get('docx_file'))
+	path = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
+	new_object.save()
+	txt_path = path+new_object.docx_file.url
+	pdf_c_path = txt_path.replace(".docx", ".pdf")
+	pdf_path = "https://toolkit-website.herokuapp.com" + new_object.docx_file.url
+	pdf_path = pdf_path.replace(".docx", ".pdf")
+	text_file = open(txt_path, 'r')
+	print (txt_path)
+	print (pdf_c_path)
+	print (pdf_path)
+	convert(txt_path, pdf_c_path)	
 	new_object.pdf_file = pdf_path
 	new_object.save()
 	data = {
