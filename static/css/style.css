@@ -48,7 +48,7 @@ body
 .suggestion-form-container
 {
 	position: fixed;
-	top: 120px;
+	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
