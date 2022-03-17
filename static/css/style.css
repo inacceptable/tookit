@@ -47,7 +47,7 @@ body
 
 .suggestion-form-container
 {
-	position: absolute;
+	position: fixed;
 	top: 120px;
 	left: 0;
 	right: 0;
@@ -125,8 +125,8 @@ body
 .tool-content-container
 {
 	
-	position: absolute;
-	top: 120px;
+	position: fixed;
+	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
