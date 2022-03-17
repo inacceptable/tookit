@@ -153,6 +153,7 @@ body
 #banner-heading{
 	font-size: 5em;
 	color: white;
+	text-align: center;
 
 }
 .website-description
@@ -196,6 +197,7 @@ body
 		background-color: white; 
 		padding: 1%; 
 		right:0; 
+		user-select: none;
 		font-size:2em; 
 		cursor:pointer;
 	}
