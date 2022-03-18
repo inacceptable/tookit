@@ -119,8 +119,11 @@ def docx_to_pdf_converter(request):
 	txt_path = path+new_object.docx_file.url
 	pdf_c_path = txt_path.replace(".docx", ".pdf")
 	convert(txt_path, pdf_c_path)	
-	new_object.pdf_file = pdf_c_path
-	pdf_path = "https://toolkit-website.herokuapp.com" + new_object.pdf_file.url
+	new_path = new_object.docx_file.url 
+	new_path = new_path.replace('docx', 'pdf')
+	new_path = new_path.replace('/media/', '') 
+	new_object.pdf_file = new_path
+	pdf_path = "http://127.0.0.1:8000" + new_object.pdf_file.url
 	print(pdf_path)
 	new_object.save()
 	data = {
