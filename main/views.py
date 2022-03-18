@@ -102,8 +102,6 @@ def txt_document_to_pdf_converter(request):
 	pdf_path = "http://toolkit-website.herokuapp.com" + new_object.txt_file.url
 	pdf_path = pdf_path.replace(".txt", ".pdf")
 	text_file = open(txt_path, 'r')
-	print(pdf_path)
-	print(txt_path)
 	for text in text_file:
 		pdf.cell(200, 10, txt = text, ln=1,align='L') 
 	pdf.output(pdf_c_path)	
@@ -123,7 +121,8 @@ def docx_to_pdf_converter(request):
 	pdf_c_path = txt_path.replace(".docx", ".pdf")
 	test_one = new_object.docx_file.url
 	test_one = test_one.replace('docx', 'pdf')
-	pdf_path = "http://toolkit-website.herokuapp.com" + new_object.docx_file.url
+	pdf_path = new_object.docx_file.url
+	print(pdf_path)
 	pdf_path = pdf_path.replace(".docx", ".pdf")
 	test_one = test_one.replace('/media/', '')
 	convert(txt_path, pdf_c_path)	
