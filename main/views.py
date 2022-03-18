@@ -121,9 +121,10 @@ def docx_to_pdf_converter(request):
 	convert(txt_path, pdf_c_path)	
 	new_url = new_object.docx_file.url
 	new_url = new_url.replace('.docx', '.pdf')
-	new_url = new_url.replace('media/', '')
-	new_object.pdf_file = new_url 
-	print (new_url)
+	print (txt_path)
+	new_fixed = path + new_url
+	new_object.pdf_file = new_fixed 
+	print (new_fixed)
 	new_object.save()
 	data = {
 		'new_url' : new_url
