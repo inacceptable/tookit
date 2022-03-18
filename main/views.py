@@ -113,21 +113,16 @@ def txt_document_to_pdf_converter(request):
 	return JsonResponse(data)
 
 def docx_to_pdf_converter(request): 
-	docx_file = request.FILES.get('docx_file')
 	new_object = docx_to_pdf(docx_file = request.FILES.get('docx_file'))
 	path = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
 	new_object.save()
 	txt_path = path+new_object.docx_file.url
 	pdf_c_path = txt_path.replace(".docx", ".pdf")
-	test_one = new_object.docx_file.url
-	test_one = test_one.replace('docx', 'pdf')
-	pdf_path = new_object.docx_file.url
-	print(pdf_path)
-	pdf_path = pdf_path.replace(".docx", ".pdf")
-	test_one = test_one.replace('/media/', '')
 	convert(txt_path, pdf_c_path)	
-	new_object.pdf_file = test_one
-	new_url = new_object.pdf_file.url 
+	new_url = new_object.docx_file.url
+	new_url = new_url.replace('.docx', '.pdf')
+	new_object.pdf_file = new_url 
+	print (new_url)
 	new_object.save()
 	data = {
 		'new_url' : new_url
