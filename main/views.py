@@ -123,8 +123,10 @@ def docx_to_pdf_converter(request):
 	new_path = new_path.replace('docx', 'pdf')
 	new_path = new_path.replace('/media/', '') 
 	new_object.pdf_file = new_path
-	pdf_path = "http://toolkit-website.herokuapp.com" + new_object.pdf_file.url
+	pdf_path = "https://toolkit-website.herokuapp.com/" + new_object.pdf_file.url
 	print(pdf_path)
+	print(new_path)
+	print(txt_path)
 	new_object.save()
 	data = {
 		'new_url' : pdf_path
