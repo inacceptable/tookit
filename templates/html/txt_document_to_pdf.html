@@ -1,0 +1,30 @@
+<div class='tool-content-container' id='txt_document_to_pdf_container'> 
+		<input type='file' id='txt_document_to_pdf_converter_input'> 
+		<h1 id='txt_document_to_pdf_result' class='select' /></h1>
+		<a style='display:none;'  href='' id='txt_document_to_pdf_converter_download' class='form-submit-button'>Download</a>
+		<a id='txt_document_to_pdf_submit' class='form-submit-button' style='border-radius: 3px; display: block;width:90%; color: white; padding:3%;margin:0 auto; text-decoration: none; font-size:1.5em;'>Submit</a>
+				<script type="text/javascript">
+		$("#txt_document_to_pdf_submit").click(function() {
+			var txt_file = $("#txt_document_to_pdf_converter_input").get(0).files[0];
+			var data = new FormData(); 
+			data.append("txt_file", txt_file);
+			data.append('csrfmiddlewaretoken', "{{csrf_token}}"); 
+		    $.ajax({
+		        type: 'POST',
+		        url: "{% url 'txt_document_to_pdf' %}",
+		        processData: false,
+				contentType: false,
+                mimeType: "multipart/form-data",
+		        data: data,
+		        success: function(data) {
+		        	 $("#txt_document_to_pdf_submit").fadeOut(300);
+		          $("#txt_document_to_pdf_converter_download").fadeIn(500);
+		          var x = JSON.parse(data);
+		          console.log(x);
+		          console.log(x.pdf_path);
+		          $("#txt_document_to_pdf_converter_download").attr("href", x.pdf_path); 
+		        }
+		    });
+		});
+		</script>
+	</div>

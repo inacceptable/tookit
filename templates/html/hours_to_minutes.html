@@ -1,0 +1,23 @@
+<div class='tool-content-container' id='hours_to_minutes_container'> 
+		<br /> 
+		<input style='padding:3%; background-color:#84a5d9; width:90%; margin:0 auto; border:0px; border-radius:5px; color:white;' id="hours_to_minutes_input" class='form-input' type='text' placeholder='Hours: '/>
+		<p style='font-size: 1.5em;' id="hours_to_minutes_result" class='select'></p>
+		<a id='hours_to_minutes_submit' class='form-submit-button' style=' border-radius: 3px; display: block;width:90%; padding:3%;margin:0 auto; color: white; text-decoration: none; font-size:1.5em;'>Submit</a>
+		<h1 id='hours_to_minutes_result' /></h1>
+		<script type="text/javascript">
+		$("#hours_to_minutes_submit").click(function() {
+			var inputted = $("#hours_to_minutes_input").val(); 
+		    $.ajax({
+		        type: 'GET',
+		        url: "{% url 'hours_to_minutes' %}",
+		        data: {
+		            'inputted' : inputted,
+		        },
+		        success: function(data) {
+
+		        	$('#hours_to_minutes_result').text("Result : " + data.new_number);
+		        }
+		    });
+		});
+		</script>
+	</div>

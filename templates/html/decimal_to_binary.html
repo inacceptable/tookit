@@ -1,0 +1,21 @@
+<div class='tool-content-container' id='number_to_binary_converter_container'> 
+		<input style='padding:3%; background-color:#84a5d9; width:90%; margin:0 auto; border:0px; border-radius:5px; color:white;' id="number_to_binary_converter_input" class='form-input' type='text' placeholder='Enter number: '/>
+		<h1 id='number_to_binary_converter_result' class='select' /></h1>
+		<a id='number_to_binary_converter_submit' class='form-submit-button' style='border-radius: 3px; display: block;width:90%; color: white; padding:3%;margin:0 auto; text-decoration: none; font-size:1.5em;'>Submit</a>
+		<script type="text/javascript">
+		$("#number_to_binary_converter_submit").click(function() {
+			var inputted = $("#number_to_binary_converter_input").val(); 
+		    $.ajax({
+		        type: 'GET',
+		        url: "{% url 'number_to_binary_converter' %}",
+		        data: {
+		            'inputted' : inputted,
+		        },
+		        success: function(data) {
+
+		        	$('#number_to_binary_converter_result').text("Result : " + data.new_number);
+		        }
+		    });
+		});
+		</script>
+	</div>
