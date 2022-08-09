@@ -6,6 +6,7 @@ $('document').ready(function() {
 							controlArrows:false,
 							scrollbars:true,
 							scrollOverflow:true,
+	   						overflow: auto;
 							anchors: ['first_page', 'second_page', 'third_page'],
      					sectionsColor : ['#BD97CB', '#495C83', '#4D4C60'],
 
