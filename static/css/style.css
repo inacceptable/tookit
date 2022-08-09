@@ -78,6 +78,8 @@
 {
 	height: 30px;
 	border-radius: 10px;
+	color: black;
+	background-color: black;
 
 }
 .form-input
@@ -112,11 +114,14 @@
 }
 .tool-list div 
 {	
-	background-color: #727dad;
-	border: 1px solid white;
+	background-color:#7A86B6;
+	box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 	color: white;
+	font-size: 1.5em;
+	font-family: arial;
 	padding: 5%; 
 	border-radius: 5px;
+	text-align: center;
 	cursor: pointer;
 	margin-bottom: 2%;
 	width: 97%;
@@ -124,22 +129,24 @@
 }
 .tool-list div:hover 
 {
-	background-color: black;
+	background-color: #DB8780;
 	transition-duration: 0.5s;
 }
 .tool-content
 {
+	background-color: #495C83;
 	width: 100%;
 	border-radius: 5px;
-	background-color: #0c6ca8;
 	margin-left: 2%;
+	border: 1px solid white;
 	padding: 2%;
 	user-select: none;
+	box-shadow: rgba(19, 38, 54, 0.4) 5px 5px, rgba(19, 38, 54, 0.3) 10px 10px, rgba(19, 38, 54, 0.2) 15px 15px, rgba(19, 38, 54, 0.1) 20px 20px, rgba(19, 38, 54, 0.05) 25px 25px;
 }
 
 .tool-content-heading
 {
-	background-color:#528ac7;
+	background-color:#1B2A37;
 	color: white;
 	text-align: center;
 	border-radius: 5px;
@@ -152,23 +159,43 @@
 }
 .form-submit-button
 {
-	background-color: #a1b3cf;
+	background-color: #A8A4CE;
 	cursor: pointer;
+}
+.submit-suggestion-container a
+{
+	display: block;
+	background-color:white;
+	cursor: pointer;
+	text-decoration: none;
+	color: black;
+	padding: 2%; 
+	width: 80%; 
+	font-size: 2em;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+	font-family: arial;
+	margin: 0 auto;
+	border-radius: 5px;
+} 
+.submit-suggestion-container a:hover
+{
+	background-color: black;
+	color: white;
+	transition-duration: 0.5s;
 }
 .form-submit-button:hover
 {
 	background-color: black;
 	transition-duration: 1s;
-
 }
 #view-tools-button
 {
 	padding: 3%;
-	background-color: #84a5d9;
+	background-color: white;
 	margin: 0 auto;
 	opacity: 0.8;
 	margin-top: 5%; 
-	color: white;
+	color: black;
 	border-radius: 5px; 
 	width: 90%; 
 	cursor: pointer;
@@ -196,12 +223,18 @@
 }
 
 .active-item{
-	background-color: #40464a !important;
+	background-color: #C8B6E2 !important;
 }
 #view-tools-button:hover
 {
 	background-color: #2cdeaf;
 	transition-duration: 1s;
+}
+#view-tools-svg
+{
+	display: block;
+	width: 50px; 
+	height: auto;
 }
 .first_page 
 {
@@ -219,7 +252,9 @@
 }
 .tool-content-content input 
 {
-	text-align: center;
+	background-color: white;
+	box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+
 }
 
 .tool-content-container h1 
@@ -242,16 +277,72 @@
 {
 	padding-top: 2%;
 	padding-bottom: 2%;
+	background-color:white;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .tool-list-button
 {
 	display: none;
 }
+.view-tools-svg_active
+{
+	fill: #5cc3ff !important;
+	transition-duration: 0.7s;
+}
+.submit-suggestion-container
+{
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #D691A0;
+	border-radius: 3px;
+	color: white;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+	margin-top: 5%;
+	padding: 3%;
+	
+}
+.submit-suggestion-container h1
+{
+
+}
+.submit-suggestion-container hr 
+{
+	height: 20px;
+	color: white;
+	border-radius: 3px;
+	width: 80%;
+	margin: 0 auto;
+}
+.submit-suggestion-container input, .submit-suggestion-container textarea
+{
+	width: 80%; 
+	border-radius: 5px; 
+	padding: 1%;
+	margin-top: 2%;
+	border: 0px;
+	font-size: 2em;
+	text-align: left;
+	max-height: 200px;
+}
 @media screen and (max-width: 1000px) {
+	.submit-suggestion-container hr 
+	{
+	width: 100%;
+	}
+	.submit-suggestion-container input, .submit-suggestion-container textarea
+	{
+		width: 100%;
+	}
   .tools-container
   {
   	width: 98%;
   	grid-template-columns: 100%;
+  }
+  #submit-suggestion
+  {
+  	width: 100%;
   }
   .tool-list
   {
@@ -260,34 +351,67 @@
   	grid-template-columns: 100%;
   	margin-top: 0;
   	display: none;
+  	box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   	margin: 0 auto;
+  	padding: 5%;
+
+  	margin-bottom: 5%;
+  	background-color: #edf4ff;
   }
   .tool-list div
   {
   	width: 100%;
   	padding: 0%;
-  	text-align: center;
+  	text-align: left;
+  	font-family: Arial, sans-serif;
   	padding: 1%;
+  	border-radius: 3px;
   
   }
   .tool-content
   {
   	margin: 0 auto;
+  	box-shadow: none;
+  	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   }
   .tool-list-button
   {
   	display: block;
   	margin: 0 auto;
   	width: 100%;
-  	background-color: black;
+  	background-color:#EEEEEE;
+  	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   	color: white;
-  	text-align: center;
+  	text-align: left;
   	padding: 1.5%; 
   	cursor: pointer;
   	margin-bottom: 2%;
   	border-radius: 3px;
   	font-size: 1.5em;
   }
+  .tool-list-button_active
+  {
+  	background-color: #D3CEDF;
+  	transition-duration: 0.7s;
+  }
+  .submit-suggestion-container
+  {
+  	width: 95%;
+  }
+  #Layer_1
+{
+	display: inline-block;
+	width: 50px; 
+	height: 50px;
+}
+	.tool-item
+	{
+		background-color: #4d566b !important;
+		font-fmaily: arial;
+		color: white !important;
+		box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+
+	}
 }
 
 
