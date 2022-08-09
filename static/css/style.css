@@ -253,6 +253,7 @@
 .tool-content-content input 
 {
 	background-color: white;
+	color: black !important;
 	box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 
 }
