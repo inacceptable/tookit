@@ -413,6 +413,27 @@
 		box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
 
 	}
+	.banner_header_container 
+	{
+		width: 100%;
+		
+	}
+	.banner 
+	{
+		width: 100%;
+	}
+	.header 
+	{
+		width: 100%;
+	}
+	#view-tools-button
+	{
+		width: 100%;
+	}
+	#hammer
+	{
+	}
+
 }
 
 
