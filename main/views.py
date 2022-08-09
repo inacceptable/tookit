@@ -20,6 +20,9 @@ def home(request):
 	} 
 	return render(request, 'html/home.html', context)
 
+
+def valid_email(email):
+  return bool(re.search(r"^[\w\.\+\-]+\@[\w]+\.[a-z]{2,3}$", email))
 def binary_to_number_converter(request):
 	number_input = str(request.GET.get('inputted'))
 	if "0b" in number_input:
@@ -93,4 +96,23 @@ def txt_document_to_pdf(request):
 	data = {
 		'pdf_path' : pdf_path
 		}
+	return JsonResponse(data)
+
+def send_feedback(request): 
+	subject = request.GET.get('subject')
+	email = request.GET.get('email')
+	suggestion = request.GET.get('suggestion')
+	email_test = valid_email(email) 
+	if email_test == False: 
+		message = "Please enter a valid email address" 
+		data = { 
+			'message' : message, 
+		}
+		return JsonResponse(data)
+	new_object = feedback(subject=subject, email=email, suggestion=suggestion)
+	new_object.save()
+	message = "Thank you for your feedback!" 
+	data = { 
+		'message' : message, 
+	}
 	return JsonResponse(data)
