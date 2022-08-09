@@ -25,5 +25,6 @@ urlpatterns = [
     path('hours_to_seconds', views.hours_to_seconds, name='hours_to_seconds'),
     path('hours_to_minutes', views.hours_to_minutes, name='hours_to_minutes'),
     path('txt_document_to_pdf', views.txt_document_to_pdf, name='txt_document_to_pdf'),
+    path('send_feedback', views.send_feedback, name='send_feedback'),
     path('', views.home, name='home'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
