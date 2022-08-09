@@ -6,8 +6,8 @@ $('document').ready(function() {
 							controlArrows:false,
 							scrollbars:true,
 							scrollOverflow:true,
-							anchors: ['first_page', 'second_page'],
-     					sectionsColor : ['#FC6471', '#285c80'],
+							anchors: ['first_page', 'second_page', 'third_page'],
+     					sectionsColor : ['#BD97CB', '#495C83', '#4D4C60'],
 
          });
    $(document).on('click', '#view-tools-button', function(){
@@ -18,6 +18,8 @@ $('document').ready(function() {
 }, 100);
 $(".tool-list-button").click(function(){
   $(".tool-list").slideToggle(300);
+  $("#view-tools-svg" ).toggleClass("view-tools-svg_active");
+  $(".tool-list-button" ).toggleClass("tool-list-button_active");
 });
 
 var windowsize = $(window).width();
