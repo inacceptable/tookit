@@ -5,6 +5,7 @@ $('document').ready(function() {
      					css3:true,
              		scrollingSpeed:1000,
 						navigation:true,
+						responsiveWidth: 1000,
 						slidesNavigation:true,
 						controlArrows:false,
 						scrollbars:true,
