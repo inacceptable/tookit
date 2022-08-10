@@ -13,9 +13,6 @@ $('document').ready(function() {
    $(document).on('click', '#view-tools-button', function(){
   fullpage_api.moveTo('anchor-second_page', 1);
 });
-   setTimeout(function(){
-    $.fn.fullpage.reBuild();
-}, 100);
 $(".tool-list-button").click(function(){
   $(".tool-list").slideToggle(300);
   $("#view-tools-svg" ).toggleClass("view-tools-svg_active");
@@ -36,5 +33,8 @@ $(window).resize(function() {
  
  }
 });
+setTimeout(function(){
+    $.fn.fullpage.reBuild();
+}, 100);
 });
 
