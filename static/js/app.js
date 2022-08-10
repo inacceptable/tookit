@@ -38,10 +38,11 @@ $(window).resize(function() {
  
  }
 });
+$('input').focus(function() { $.fn.fullpage.setAutoScrolling(false); });
+$('input').blur(function() { $.fn.fullpage.setAutoScrolling(true); });
 setTimeout(function(){
     $.fn.fullpage.reBuild();
 }, 100);
-$('input').focus(function() { $.fn.fullpage.setAutoScrolling(false); }
-$('input').blur(function() { $.fn.fullpage.setAutoScrolling(true); }
+
 });
 
