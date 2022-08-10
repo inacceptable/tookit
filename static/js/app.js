@@ -9,6 +9,10 @@ $('document').ready(function() {
 						controlArrows:false,
 						scrollbars:true,
 						scrollOverflow:true,
+						    scrollOverflowOptions: {
+        scrollbars: false,
+        preventDefault: false
+    },
 
          });
    $(document).on('click', '#view-tools-button', function(){
