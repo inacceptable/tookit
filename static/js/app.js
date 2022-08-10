@@ -1,14 +1,14 @@
 $('document').ready(function() {
    $('#fullpage').fullpage({
-   			css3:true,
-             scrollingSpeed:1000,
-							navigation:true,
-							slidesNavigation:true,
-							controlArrows:false,
-							scrollbars:true,
-							scrollOverflow:true,
-							anchors: ['first_page', 'second_page', 'third_page'],
+						anchors: ['first_page', 'second_page', 'third_page'],
      					sectionsColor : ['#BD97CB', '#495C83', '#4D4C60'],
+     					css3:true,
+             		scrollingSpeed:1000,
+						navigation:true,
+						slidesNavigation:true,
+						controlArrows:false,
+						scrollbars:true,
+						scrollOverflow:true,
 
          });
    $(document).on('click', '#view-tools-button', function(){
