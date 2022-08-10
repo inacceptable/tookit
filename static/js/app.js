@@ -5,7 +5,6 @@ $('document').ready(function() {
      					css3:true,
              		scrollingSpeed:1000,
 						navigation:true,
-						responsiveWidth: 1000,
 						slidesNavigation:true,
 						controlArrows:false,
 						scrollbars:true,
@@ -42,5 +41,7 @@ $(window).resize(function() {
 setTimeout(function(){
     $.fn.fullpage.reBuild();
 }, 100);
+$('input').focus(function() { $.fn.fullpage.setAutoScrolling(false); }
+$('input').blur(function() { $.fn.fullpage.setAutoScrolling(true); }
 });
 
