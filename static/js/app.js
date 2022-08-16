@@ -3,16 +3,12 @@ $('document').ready(function() {
 						anchors: ['first_page', 'second_page', 'third_page'],
      					sectionsColor : ['#BD97CB', '#495C83', '#4D4C60'],
      					css3:true,
-             		scrollingSpeed:1000,
-						navigation:true,
-						slidesNavigation:true,
-						controlArrows:false,
-						scrollbars:true,
-						scrollOverflow:true,
-						    scrollOverflowOptions: {
-        scrollbars: false,
-        preventDefault: false
-    },
+             	scrollingSpeed: 1000,
+                navigation: true,
+                slidesNavigation: true,
+                controlArrows: false,
+                scrollbars: true,
+                scrollOverflow: true, // even though this is set to true, it's not working
 
          });
    $(document).on('click', '#view-tools-button', function(){
