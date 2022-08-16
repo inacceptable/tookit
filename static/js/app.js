@@ -9,7 +9,7 @@ $('document').ready(function() {
                 controlArrows: false,
                 scrollbars: true,
                 scrollOverflow: true, 
-                responsiveWidth: 900,// even though this is set to true, it's not working
+                responsiveWidth: 700,// even though this is set to true, it's not working
 
          });
    $(document).on('click', '#view-tools-button', function(){
