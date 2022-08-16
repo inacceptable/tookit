@@ -2,6 +2,7 @@
 #fullpage
 {
 	border-radius: 2px;
+
 }
 
 .header
@@ -11,6 +12,8 @@
 	padding: 1%;
 	
 }
+
+
 .header hr 
 {
 	background-color: black;
@@ -440,6 +443,10 @@
 	}
 	.active-item{
 	background-color: #C8B6E2 !important;
+}
+.second_page 
+{
+	height: 200vh;
 }
 
 }
