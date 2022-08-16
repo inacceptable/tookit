@@ -35,11 +35,10 @@ $(window).resize(function() {
       $(".tool-list").show();
   }
  else {
- 
+
  }
 });
-$('input').focus(function() { $.fn.fullpage.setAutoScrolling(false); });
-$('input').blur(function() { $.fn.fullpage.setAutoScrolling(true); });
+
 setTimeout(function(){
     $.fn.fullpage.reBuild();
 }, 100);
