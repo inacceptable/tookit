@@ -8,7 +8,8 @@ $('document').ready(function() {
                 slidesNavigation: true,
                 controlArrows: false,
                 scrollbars: true,
-                scrollOverflow: true, // even though this is set to true, it's not working
+                scrollOverflow: true, 
+                responsiveWidth: 900,// even though this is set to true, it's not working
 
          });
    $(document).on('click', '#view-tools-button', function(){
