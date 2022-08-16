@@ -13,7 +13,7 @@ from fpdf import FPDF
 from .models import txt_to_pdf, feedback, docx_to_pdf
 
 def home(request):
-	tool_list = [['Decimal to binary', 'html/decimal_to_binary.html'], ['Binary to Decimal', 'html/binary_to_decimal.html'], ['Password Generator','html/password_generator.html'], ['Hours to seconds converter', 'html/hours_to_seconds_converter.html'], ['Hours to minutes', 'html/hours_to_minutes.html'], ['TXT document to pdf', 'html/txt_document_to_pdf.html'], ['DOCX to PDF', 'html/docx_to_pdf.html']]
+	tool_list = [['Decimal to binary', 'html/decimal_to_binary.html'], ['Binary to Decimal', 'html/binary_to_decimal.html'], ['Password Generator','html/password_generator.html'], ['Hours to seconds converter', 'html/hours_to_seconds_converter.html'], ['Hours to minutes', 'html/hours_to_minutes.html'], ['TXT document to pdf', 'html/txt_document_to_pdf.html'],]
 	context = {
 		'tool_list' : tool_list, 
 
@@ -40,7 +40,10 @@ def binary_to_number_converter(request):
 
 def number_to_binary_converter(request):
 	new_number = str(request.GET.get('inputted'))
-	new_number = bin(int(new_number))
+	try:
+		new_number = bin(int(new_number))
+	except:
+		new_number = "Please enter a valid number."
 	data = { 
 		'new_number' : new_number,
 	}
