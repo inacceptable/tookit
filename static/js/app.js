@@ -7,6 +7,7 @@ $('document').ready(function() {
   lockAnchors: false,
   anchors:['firstPage', 'secondPage'],
   navigation: false,
+  responsiveWidth: 600, 
   navigationPosition: 'right',
   navigationTooltips: ['first_page', 'second_page', 'third_page'],
   showActiveTooltip: false,
